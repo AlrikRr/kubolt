@@ -1,6 +1,4 @@
 
-
-
 # Wat?
 **Kubolt** is simple utility for scanning public unauthinticated kubernetes clusters and run commands inside containers
 
@@ -15,6 +13,14 @@ func (s *Server) getRun(request *restful.Request, response *restful.Response) {
 		response.WriteError(http.StatusNotFound, fmt.Errorf("pod does not exist"))
 		return
 	}
+```
+
+# Install 
+Using virtualenv
+```python
+virtualenv -p python3 kubolt3
+source kubolt3/bin/activate
+pip install -r requirements.txt
 ```
 
 # How?
